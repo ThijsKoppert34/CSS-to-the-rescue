@@ -6,5 +6,5 @@ Mijn plan is om een pov vanuit een lift te maken, en een control panel rechts om
 
 Als de lift beweegt wil ik hem laten trillen, zodat het echt lijkt alsof de lift omhoog beweegt. Ook wil ik de nummers laten draaien tot ze bij het juiste jaartal zijn. Een beetje het effect van een slot machine. 
 
-![Schets van lift](./images/schetsvanlift.jpg)
+![Schets van lift](./images/schetsvanlift.jpeg)
 
