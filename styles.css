@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+section {
+    --size-lift: 60vw;
+
+    place-self: start;
+
+    width: var(--size-lift);
+    aspect-ratio: 1/1;
+
+    display: grid;
+
+    perspective: 100vmin;
+    transform-style: preserve-3d;
+}
+
+div {
+    grid-area: 1/1;
+}
+
+section:nth-of-type(1) div:nth-of-type(1) {
+    transform:
+        translateZ(calc(var(--size-lift) * -.5)) rotateY(90deg) translateZ(calc(var(--size-lift) * .5));
+    background-image: repeating-linear-gradient(gold 0 5%, green 0 10%);
+}
+
+div:nth-of-type(2) {
+    transform:
+        translateZ(calc(var(--size-lift) * -.5)) rotateY(-90deg) translateZ(calc(var(--size-lift) * .5));
+    background-image: repeating-linear-gradient(gold 0 5%, green 0 10%);
+}
+
+div:nth-of-type(3) {
+    transform:
+        translateZ(calc(var(--size-lift) * -.5)) rotateX(90deg) translateZ(calc(var(--size-lift) * .5));
+    background-image: repeating-linear-gradient(red 0 5%, orange 0 10%);
+}
+
+div:nth-of-type(4) {
+    transform:
+        translateZ(calc(var(--size-lift) * -.5)) rotateX(-90deg) translateZ(calc(var(--size-lift) * .5));
+    background-image: repeating-linear-gradient(red 0 5%, orange 0 10%);
+}
+
+div:nth-of-type(5) {
+    width: 50%;
+
+    transform:
+        translateZ(calc(var(--size-lift) * -1));
+
+    background-image: linear-gradient(90deg,
+            #666 0%,
+            /* Donkergrijs zilver */
+            #888 25%,
+            /* Midden-zilver */
+            #aaa 50%,
+            /* Lichte reflectie */
+            #888 75%,
+            /* Midden-zilver */
+            #666 100%
+            /* Donkergrijs zilver */
+        );
+    transition: .5s;
+}
+
+div:nth-of-type(6) {
+    width: 50%;
+    justify-self: end;
+
+    transform:
+        translateZ(calc(var(--size-lift) * -1));
+
+    background-image: linear-gradient(90deg,
+            #666 0%,
+            /* Donkergrijs zilver */
+            #888 25%,
+            /* Midden-zilver */
+            #aaa 50%,
+            /* Lichte reflectie */
+            #888 75%,
+            /* Midden-zilver */
+            #666 100%
+            /* Donkergrijs zilver */
+        );
+    transition: .5s;
+}
+
+/* section:hover div:nth-of-type(5) {
+    transform:
+        translateZ(calc(var(--size-lift) * -1)) translateX(calc(var(--size-lift) * -.5));
+} */
+
+/* section:hover div:nth-of-type(6) {
+    transform:
+        translateZ(calc(var(--size-lift) * -1)) translateX(calc(var(--size-lift) * .5));
+
+} */
+
+.panel {
+    height: 20%;
+    width: 100%;
+    background: red;
+}
+
+/* grid generator */
+.knoppen {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 40vw;
+    background-color: #666;
+}
+
+.knoppen input {
+    opacity: 0;
+}
+
+.knoppen label {
+    cursor: pointer;
+}
+
+.knoppen img {
+    width: 10em;
+}
+
+body:has(input[value="internet"]:checked) .deurLinks,
+body:has(input[value="robot"]:checked) .deurLinks,
+body:has(input[value="knots"]:checked) .deurLinks,
+body:has(input[value="zwaard"]:checked) .deurLinks,
+body:has(input[value="dino"]:checked) .deurLinks,
+body:has(input[value="holbewoner"]:checked) .deurLinks {
+    transform:
+        translateZ(calc(var(--size-lift) * -1)) translateX(calc(var(--size-lift) * -.5));
+}
+
+body:has(input[value="internet"]:checked) .deurRechts,
+body:has(input[value="robot"]:checked) .deurRechts,
+body:has(input[value="knots"]:checked) .deurRechts,
+body:has(input[value="zwaard"]:checked) .deurRechts,
+body:has(input[value="dino"]:checked) .deurRechts,
+body:has(input[value="holbewoner"]:checked) .deurRechts {
+    transform:
+        translateZ(calc(var(--size-lift) * -1)) translateX(calc(var(--size-lift) * .5));
+}
