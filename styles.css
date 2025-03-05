@@ -1,13 +1,37 @@
+@font-face {
+    font-family: 'digitaal';
+    src: url('../fonts/Digital7-rg1mL.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'digitaal1';
+    src: url('../fonts/Digital7Italic-BW658.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'digitaal2';
+    src: url('../fonts/Digital7Mono-Yz9J4.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'digitaal3';
+    src: url('../fonts/Digital7Monoitalic-8MDLJ.ttf') format('truetype');
+}
+
+
 body {
     margin: 0;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
+    /* overflow: hidden; */
 }
 
 section {
-    --size-lift: 60vw;
+    --size-lift: 55vw;
 
     place-self: start;
 
@@ -16,7 +40,7 @@ section {
 
     display: grid;
 
-    perspective: 100vmin;
+    perspective: 150vmin;
     transform-style: preserve-3d;
 }
 
@@ -67,6 +91,7 @@ div:nth-of-type(5) {
             /* Donkergrijs zilver */
         );
     transition: .5s;
+    transition-delay: 2s;
 }
 
 div:nth-of-type(6) {
@@ -88,7 +113,8 @@ div:nth-of-type(6) {
             #666 100%
             /* Donkergrijs zilver */
         );
-    transition: .5s;
+    transition-duration: .5s;
+    transition-delay: 2s;
 }
 
 /* section:hover div:nth-of-type(5) {
@@ -103,18 +129,30 @@ div:nth-of-type(6) {
 } */
 
 .panel {
-    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 12px solid #666;
+    box-sizing: border-box;
+    height: 10%;
     width: 100%;
-    background: red;
+    background: #2d2d2d;
+    align-items: center;
+    z-index: 1;
+    color: greenyellow;
+    font-family: digitaal;
+    font-size: 50px;
 }
+
 
 /* grid generator */
 .knoppen {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 40vw;
+    width: 45vw;
     background-color: #666;
+    height: 85%;
 }
 
 .knoppen input {
@@ -123,10 +161,19 @@ div:nth-of-type(6) {
 
 .knoppen label {
     cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .knoppen img {
-    width: 10em;
+    width: 7em;
+    padding: 1em;
+    outline: 3px solid #ffffff;
+    border-radius: 5px;
+    filter: drop-shadow(3px 5px 7px #000000);
 }
 
 body:has(input[value="internet"]:checked) .deurLinks,
@@ -147,4 +194,16 @@ body:has(input[value="dino"]:checked) .deurRechts,
 body:has(input[value="holbewoner"]:checked) .deurRechts {
     transform:
         translateZ(calc(var(--size-lift) * -1)) translateX(calc(var(--size-lift) * .5));
+}
+
+p {
+    margin: 0;
+}
+
+body:has(input[value="holbewoner"]:checked) .panel p:nth-of-type(1) {
+    display: none;
+}
+
+body:has(input[value="zwaard"]:checked) .panel p:nth-of-type(1) {
+    display: none;
 }
